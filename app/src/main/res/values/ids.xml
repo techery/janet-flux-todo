@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="checkbox" type="id" />
+    <item name="input" type="id" />
+    <item name="button_add" type="id" />
+    <item name="button_clear" type="id" />
+    <item name="input_container" type="id" />
+    <item name="button_delete" type="id" />
+</resources>
