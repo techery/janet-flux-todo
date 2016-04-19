@@ -42,7 +42,7 @@ public class TodoAction extends ValueCommandAction<Todo> {
         return new TodoAction(null, Action.UNDO_DELETED);
     }
 
-    public static TodoAction add(Todo todo) {
-        return new TodoAction(todo, Action.ADD);
+    public static TodoAction completeTodo(Todo todo, Boolean completed) {
+        return new TodoAction(ImmutableTodo.copyOf(todo).withCompleted(completed), Action.ADD);
     }
 }

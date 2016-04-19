@@ -77,7 +77,7 @@ public class TodoStore {
         return state;
     }
 
-    public Observable<List<Todo>> observeChages() {
+    public Observable<List<Todo>> observeChanges() {
         return storeChangeActionPipe.observeSuccess().map(CommandActionBase::getResult);
     }
 

@@ -11,7 +11,6 @@ import java.util.List;
 
 import io.techery.janet.WriteActionPipe;
 import io.techery.janet.todo.action.TodoAction;
-import io.techery.janet.todo.model.ImmutableTodo;
 import io.techery.janet.todo.model.Todo;
 import io.techery.janet.todo.store.TodoStore;
 import io.techery.janet.todo.view.MainView;
@@ -31,7 +30,7 @@ public class TodoActivity extends RxAppCompatActivity {
         todoActionPipe = app.todoActionPipe();
 
         todoStore = app.getTodoStore();
-        todoStore.observeChages()
+        todoStore.observeChanges()
                 .startWith(todoStore.getState())
                 .compose(bindToLifecycle())
                 .subscribe(this::updateItems);
@@ -68,7 +67,7 @@ public class TodoActivity extends RxAppCompatActivity {
     }
 
     private void completeTodo(Todo todo, Boolean completed) {
-        todoActionPipe.send(TodoAction.add(ImmutableTodo.copyOf(todo).withCompleted(completed)));
+        todoActionPipe.send(TodoAction.completeTodo(todo, completed));
     }
 
 

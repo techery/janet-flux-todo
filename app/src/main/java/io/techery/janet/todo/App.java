@@ -13,14 +13,13 @@ import io.techery.janet.todo.store.TodoStore;
 
 public class App extends Application {
 
-    private Janet janet;
     private ActionPipe<TodoAction> todoActionPipe;
     private TodoStore todoStore;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        janet = new Janet.Builder()
+        Janet janet = new Janet.Builder()
                 .addService(new CommandActionService())
                 .build();
         todoActionPipe = janet.createPipe(TodoAction.class);
